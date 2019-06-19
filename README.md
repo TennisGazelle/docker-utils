@@ -1,7 +1,7 @@
 # docker-utils
 utilities for managing docker images
 
-# docker-merger.py
+## `docker-merger/`
 Not supposed to have two different base images in the same dockerfile? Of course.
 Is having multistage builds a better idea? Perhaps.
 But does that mean that the absolute need will ever not arise? NO.
@@ -42,4 +42,16 @@ FROM golang:alpine
 ENV PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV LANG=C.UTF-8
 # ... go stuff...
+```
+
+## `docker-jenkins/`
+Want to run jenkins locally? This helps a little.
+
+This has been stolen from a comment on https://stackoverflow.com/questions/36309063/how-can-i-test-a-change-made-to-jenkinsfile-locally/45330705.
+
+```bash
+sudo ./restart_jenkins.sh
+docker exec -it jenkins /bin/bash
+> cat /var/jenkins_home/secrets/initialAdminPassword # for admin login
+# go to localhost:8787 to continue
 ```
